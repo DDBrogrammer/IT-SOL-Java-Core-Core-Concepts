@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class Bai_7 {
     public static void main(String[] args) {
-        System.out.println(checkPrime(11));
+       for(int i=100000;i<=999999;i++){
+           if(checkAllNumberOdd(i) && checkPrime(i)){
+               System.out.println(i);
+           }
+       }
     }
 
     public static boolean checkPrime(int number){
@@ -19,9 +23,19 @@ public class Bai_7 {
                 result=i;
             }
         }
-        System.out.println(result);
         return result;
     }
 
-
+    public static boolean checkAllNumberOdd(int number){
+        boolean check=true;
+        int com;
+        while (number > 0) {
+            com = number % 10;
+            number = number / 10;
+            if(com%2==0){
+                check=false;
+            }
+        }
+        return check;
+    }
 }
