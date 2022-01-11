@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Bai_1 {
     public static void main(String[] args) {
-        int n, kt = 1;
+        int n;
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("Nhập số phần tử của mảng: ");

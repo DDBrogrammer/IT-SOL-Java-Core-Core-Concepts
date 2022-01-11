@@ -4,7 +4,8 @@ public class Bai_10 {
     public static void main(String[] args) {
 
 for(int i=1000000;i<=9999999 ;i++){
-    if(checkPrime(i) && checkContainPrime(i) ){
+    if(checkContainPrime(i) && checkPrime(i) ){
+
         System.out.println(i);
     }
 }

@@ -5,11 +5,29 @@ import java.util.Scanner;
 public class Bai_4 {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
-        System.out.println("Nhập số tự nhiên a:");
-        Integer a = myObj.nextInt();
-        System.out.println("Nhập số tự nhiên b:");
-        Integer b= myObj.nextInt();
-        findPair(a,b);
+        int a,b;
+        do {
+
+            System.out.println("Nhập số tự nhiên a:");
+             a = myObj.nextInt();
+            System.out.println("Nhập số tự nhiên b:");
+             b = myObj.nextInt();
+             if(a>b){
+                 System.out.println("a phải bé hơn b");
+             }else{
+                 break;
+             }
+        }
+        while(true);
+
+        for(int i=a;a<=b;i++){
+            for(int j=i+1;j<=b;j++){
+                if(getGCD(i,j)==1){
+                    System.out.println("Cặp số nguyên: "+i+ " và "+j);
+                }
+            }
+        }
+
 
     }
 
@@ -20,30 +38,7 @@ public class Bai_4 {
     }
 
     public static void findPair(int a, int b){
-        if(a-b>0){
-            for(int i=b;i<=a;i++){
-                  if(checkPrime(i)){
-                      for(int t=a;t>=i;t--){
-                          if(checkPrime(t)){
-                              System.out.print(i+" "+t);
-                          }
-                      }
-                  }
 
-            }
-        }else {
-            for(int i=a;i<=b;i++){
-                if(checkPrime(i)){
-                    for(int t=b;t>=i;t--){
-                        if(checkPrime(t)){
-                            System.out.print(i+" "+t);
-                        }
-                    }
-                }
-
-            }
-
-        }
     }
     public static int getGCD(int num){
         int result=0;
@@ -55,5 +50,21 @@ public class Bai_4 {
         System.out.println(result);
         return result;
     }
-
+    public static int getGCD(int a, int b){
+        int sum=0;
+        if(a-b>0){
+            for(int i=1;i<=a;i++){
+                if(a % i==0 && b% i==0){
+                    sum=i;
+                }
+            }
+        }else {
+            for (int i = 1; i <= b; i++) {
+                if (a % i == 0 && b % i == 0) {
+                    sum = i;
+                }
+            }
+        }
+        return sum;
+    }
 }
