@@ -14,7 +14,7 @@ public class Bai_9 {
         while (number > 0) {
             r = number % 10;
             number = number / 10;
-            if(r!=a & r!=b && r!=c){
+            if(r!=a && r!=b && r!=c){
                 check = false;
             }
         }

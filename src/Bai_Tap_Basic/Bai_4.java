@@ -1,7 +1,7 @@
 package Bai_Tap_Basic;
 
 import java.util.Scanner;
-
+// error
 public class Bai_4 {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
