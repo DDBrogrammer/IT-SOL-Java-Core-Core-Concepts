@@ -17,18 +17,9 @@ public class Bai_3 {
             System.out.print("A[" + i + "] = ");
             A[i] = scanner.nextInt();
         }
+        countElement(A);
+           }
 
-        int countList[];
-        countList=getCountList(A);
-        for(int i=0;i<countList.length-1;i++){
-            System.out.println(countList[i]);
-        }
-        for (int i=0;i<countList.length-1;i++){
-            if(i%2==0){
-                System.out.println("Number: "+countList[i]);
-
-            }else System.out.println("Total: "+ countList[i]);        }
-    }
 
     public static  int[] sort(int[] arr){
         int n=arr.length;
@@ -44,37 +35,41 @@ public class Bai_3 {
         }
         return arr;
     }
-
-    public static  int countDifferentElement(int[] arr ){
-        int sorted_arr[]= sort(arr);
-        int count = 1;
-      for(int i=0;i<=arr.length-2; i++){
-          if(sorted_arr[i]!=sorted_arr[i+1]){
-              count=count+1;
+    
+    public static  void countElement(int[] arr){
+      int[] sorted_arr=sort(arr);
+      int count=1;
+      int max=1;
+      int numMax=1;
+      if(arr.length==1){
+          System.out.println("Số xuất hiện nhiều nhất là: "+arr[0]+" (1 lần)");
+      }else{
+          for(int i = 0;i<=sorted_arr.length-2;i++){
+              if(sorted_arr[i]==sorted_arr[i+1]){
+                  count=count+1;
+                  if(i+1==arr.length-1){
+                      System.out.println("số "+sorted_arr[i+1]+" xuất hiện "+count +" lần");
+                      if(count>max){
+                          max=count;
+                          numMax=sorted_arr[i+1];
+                      }
+                  }
+              }else if(sorted_arr[i]!=sorted_arr[i+1]){
+                  System.out.println("số "+sorted_arr[i]+" xuất hiện "+count+" lần");
+                  if(i+1==arr.length-1){
+                      System.out.println("số "+sorted_arr[i+1]+" xuất hiện 1 lần");
+                  }
+                  if(count>max){
+                      max=count;
+                      numMax=sorted_arr[i];
+                  }
+                  count=1;
+              }
           }
+          System.out.println("Số xuất hiện nhiều nhất là: "+numMax+" ("+max+" lần)");
       }
-      return count;
-    }
-    public static int[] getCountList(int[] arr ){
-        int sorted_arr[]= sort(arr);
-        int count = 1;
-        int [] count_list_number= new int[countDifferentElement(sorted_arr)*2];
-        int index=0;
-        for( int i=0;i< arr.length-2;i++){
-            if(sorted_arr[i]==sorted_arr[i+1]){
-                System.out.println("run count");
-                count=count+1;
-            }else if(sorted_arr[i]!=sorted_arr[i+1] ){
-                System.out.println("run add");
-                count_list_number[index]=sorted_arr[i];
-                index=index+1;
-                count_list_number[index]=count;
-                count=1;
-                index=index+1;
 
-            }
-        }
-        return count_list_number;
+
     }
 
 }
